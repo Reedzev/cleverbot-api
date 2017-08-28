@@ -14,7 +14,7 @@ class CleverbotAPI {
         this.key = key;
     }
     getReply(options = {}, callback) {
-        let url = `https://www.cleverbot.com/getreply?key=${this.key}`;
+        let url = `https://www.cleverbot.com/getreply?wrapper=cleverbot-api&key=${this.key}`;
         url += (options.input ? `&input=${options.input}` : '');
         url += (options.cs ? `&cs=${options.cs}` : '');
         request.get(url, (error, response, body) => {
