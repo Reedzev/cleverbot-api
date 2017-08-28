@@ -13,6 +13,7 @@ client.on('message', message => {
         if(message.mentions.users.first()) {
             if(message.mentions.users.first().id === client.user.id) {
                 if(message.content.startsWith(message.mentions.users.first())) {
+                    message.channel.startTyping();
                     const input = message.content.split(' ').slice(1, this.length).join(' ');
                     let options = {};
                     options.input = (input ? input : undefined);
@@ -28,6 +29,8 @@ client.on('message', message => {
     } catch(error) {
         console.error(error);
         message.reply('wystąpił błąd!');
+    } finally {
+        message.channel.stopTyping();
     }
 });
 
