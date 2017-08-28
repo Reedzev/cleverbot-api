@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 const CleverbotAPI = require('cleverbot-api');
 
 const client = new Discord.Client();
-const cleverbot = new CleverbotAPI('API-KEY');
+const cleverbot = new CleverbotAPI('YOURAPIKEY');
 
 let cs = {};
 
