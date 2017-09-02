@@ -20,7 +20,12 @@ class CleverbotAPI {
         request.get(url, (error, response, body) => {
             if(error) callback(error);
             if(response.statusCode === 200) {
-                callback(undefined, JSON.parse(body));
+                try {
+                    const parsedResponse = JSON.parse(body);
+                    callback(undefined, parsedResponse);
+                } catch(error) {
+                    callback(new CleverbotAPIError('Invalid response!'));
+                }
             } else {
                 switch(response.statusCode) {
                     case 401:
