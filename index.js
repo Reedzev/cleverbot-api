@@ -17,6 +17,9 @@ class CleverbotAPI {
         let url = `https://www.cleverbot.com/getreply?wrapper=cleverbot-api&key=${this.key}`;
         url += (options.input ? `&input=${options.input}` : '');
         url += (options.cs ? `&cs=${options.cs}` : '');
+        url += (options.tweak1 ? `&tweak1=${options.tweak1}` : '');
+        url += (options.tweak2 ? `&tweak2=${options.tweak2}` : '');
+        url += (options.tweak3 ? `&tweak3=${options.tweak3}` : '');
         request.get(url, (error, response, body) => {
             if(error) callback(error);
             if(response.statusCode === 200) {
